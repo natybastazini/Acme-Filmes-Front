@@ -11,29 +11,16 @@
     <title>Acme filmes</title>
 </head>
 <body class="bg-gradient-to-b from-black from-50% to-principal to-100% h-screen">
-    <header class="flex items-center justify-center py-12">
-        <img class="w-72" src="../../img/logo.png" alt="logo">
+    <header class="flex items-center justify-between py-12 px-14">
+        <img class="w-56" src="../../img/logo.png" alt="logo">
+        <div class="flex flex-row bg-white rounded-md items-center justify-between px-4 w-[80%] h-10">
+            <input type="text" class="outline-none w-full">
+            <img class="w-6 h-6" src="../../img/lupa.png" alt="lupa">
+        </div> 
     </header>
-    <main class="px-10 py-2">
-         <div class="flex items-center justify-center flex-cols gap-4 px-24 py-14">
-            <button class="text-white font-semibold bg-principal w-52 h-10 rounded-xl">
-                <a href="../pages/filmes.html">
-                    Filmes
-                </a>
-            </button>
-            <button class="text-white font-semibold bg-principal w-52 h-10 rounded-xl">
-                <a href="">
-                    Séries
-                </a>
-            </button>
-            <div class="flex flex-row bg-white rounded-md items-center justify-between px-4 w-[34%] h-10">
-                <input type="text" class="outline-none w-full">
-                <img class="w-6 h-6" src="../../img/lupa.png" alt="lupa">
-            </div> 
-        </div>
+    <main class="px-20 py-2">
         <div class="flex flex-col py-4">
-            <div class="text-white font-font font-semibold">
-                <h2>Filmes</h2>
+            <div class="">
                 <section class="flex" id="card-container">
                     <div class="flex items-center justify-center gap-2">
                         <a class="flex items-center justify-center flex-col" href="../pages/filme.html">
@@ -49,13 +36,9 @@
                             </div>
                         </a>
                     </div>
-                </section>
-                    
+                </section>   
             </div>
-            <div class="text-white font-font font-semibold">
-                <h2>Séries</h2>
-            </div>
-        </div>
-    </main>  
+        </div> 
+    </main>
 </body>
 </html>
