@@ -13,3 +13,12 @@ export async function getFilme (id) {
     return data.filme[0]
 }
 
+export async function deleteFilme(id) {
+    const url = `http://localhost:8080/v2/acmefilmes/filme/${id}`
+    const options={
+        method: 'DELETE'
+    }
+    const response = await fetch(url, options)
+    return response.ok
+}
+

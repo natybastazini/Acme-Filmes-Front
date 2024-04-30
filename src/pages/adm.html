@@ -7,15 +7,66 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Protest+Strike&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/menu.css">
     <script type="module" src="../js/filme.js" defer></script>
     <link rel="icon" href="../../img/logo.png">
     <title>Acme filmes</title>
 </head>
-<body class="bg-gradient-to-b from-black from-50% to-principal to-100% h-screen">
-    <div class="bg-amber-400 w-6 h-6">
+<body class="bg-gradient-to-b from-black from-50% to-principal to-100% h-screen font-font">
+    <header class="flex items-center justify-between px-20 py-5">
+        <img class="w-72" src="../../img/logo.png" alt="logo">
+        <a href="./adm.html">
 
-    </div>
-    <!-- <main class="flex flex-col h-8 w-10 bg-yellow-400">
+            <nav>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">MENU &#9660;</a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="#">FILMES</a></li>
+                            <li><a href="#">ATORES</a></li>
+                            <li><a href="#">DIRETORES</a></li>
+                            <li><a href="#">GÊNEROS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+    </header>
+    <main class="flex items-center justify-center w-ful py-10 px-80">
+        <div class="bg-transparente rounded-md w-full h-[600px] flex items-center flex-col gap-1 py-10 px-4">
+            <div class="flex justify-between w-full gap-3">
+                <div class="text-white font-bold w-full h text-center text-xl" > <span> Nome </span> </div>
+                <div class="text-white font-bold w-full h text-center text-xl" > <span> Sinopse </span> </div>
+                <div class="text-white font-bold w-full h text-center text-xl" > <span> Duração </span> </div>
+                <div class="text-white font-bold w-full h text-center text-xl" > <span> Valor </span> </div>
+                <div> <img class="w-24  invisible" src="../../img/lixo.png" alt=""> </div>
+                <div> <img class="w-24 invisible" src="../../img/editar2.png" alt=""> </div>
+
+            </div>
+            <div class="flex justify-between w-full gap-3">
+                <div class="bg-white w-full h-8 text-center rounded-md font-bold" > <span> Nome </span> </div>
+                <div class="bg-white w-full h-8 text-center rounded-md font-bold" > <span> Sinopse </span> </div>
+                <div class="bg-white w-full h-8 text-center rounded-md font-bold" > <span> Duração </span> </div>
+                <div class="bg-white w-full h-8 text-center rounded-md font-bold" > <span> Valor </span> </div>
+                <div><a href=""><img class="w-24" src="../../img/lixo.png" alt="" onclick="alert('oi')"> </a> </div>
+                <div> <img class="w-24" src="../../img/editar2.png" alt=""> </div>
+            </div>
+            
+                <!-- <table id="tabela" class="w-[90%]">
+                    <tr class="text-white bg-white  font-bold w-full flex justify-between">
+                        <th > <span> Nome </span> </th>
+                        <th > <span> Sinopse </span> </th>
+                        <th> <span> Duração </span> </th>
+                        <th> <span> Valor </span> </th>
+                    </tr>
+                    <tr class="text-white  font-bold w-full flex justify-between">
+                        <td class="bg-white flex w-full border-2">1</td>
+                        
+                    </tr>
+                </table>    -->
+            
+        </div>
+    </main>
+    <!-- <main class="flex flex-col h-8 w-10 bg-white ">
         <h1>Administração</h1>
         <div class="container-table">
             <table id="tabela">
