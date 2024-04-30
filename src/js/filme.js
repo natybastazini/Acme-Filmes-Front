@@ -13,6 +13,10 @@ const criarCard = (filme) => {
             </div>
         </a>
     `
+
+    card.addEventListener('click', () => {
+        localStorage.setItem('filmeId', filme.id)
+    })
     return card
 }
 
@@ -37,25 +41,6 @@ async function mostrarCard (){
 
 mostrarCard()
 
-//Criar conteúdo da page de filme.
-
-const criarContainer = (filme) => {
-    const card = document.createElement('div')
-
-    card.className = `flex items-center justify-center flex-row gap-20 pt-10`
-
-    const image = document.createElement('img')
-    image.src = `${filme.foto_capa}`
-
-    const title = document.createElement('h1')
-    card.className = `text-white font-font font-bold text-[40px]`
-    
-    const info = document.querySelector(".info p")
-    info = `${filme.ano} | ${filme.duracao} | ${filme.genero}`
-
-    const sinopse = document.createElement('p')
-    card.className = `text-white text-[24px] w-[600px] py-10`
-}
 
 {/* <div id="container" class="flex items-center justify-center flex-row gap-20 pt-10">
             <img class="w-48" src="../../img/O profissional.png" alt="filme">

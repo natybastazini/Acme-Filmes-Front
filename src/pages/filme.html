@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Protest+Strike&display=swap" rel="stylesheet">
-
+    <script type="module" src="../js/filme-info.js" defer></script>
     <link rel="icon" href="../../img/logo.png">
     <title>Acme filmes</title>
 </head>
@@ -23,17 +23,17 @@
             </a>
         </div>
         <div id="container" class="flex items-center justify-center flex-row gap-20 pt-10">
-            <img class="w-48" src="../../img/O profissional.png" alt="filme">
+            <img id="filme-img" class="w-64" src="../../img/O profissional.png" alt="filme">
             <div class="px-20">
-                <h1 class="text-white font-font font-bold text-[40px]">
+                <h1 id="filme-nome" class="text-white font-font font-bold text-[40px]">
                     O PROFISSIONAL
                 </h1>
                 <div class="flex flex-row">
-                    <p class="text-white font-font text-[20px]">
+                    <p id="filme-info" class="text-white font-font text-[20px]">
                         1994 | 1h 49min | Ação
                     </p>
                 </div>
-                <p class="text-white text-[24px] w-[600px] py-10">
+                <p id="filme-sinopse" class="text-white text-[16px] w-[600px] py-10">
                     Um assassino profissional de Nova York se torna o guardião de uma garota de 12 anos que busca se vingar do policial que assassinou toda a sua família.
                 </p>
                 <!-- <button class="flex items-center gap-2">
@@ -42,10 +42,11 @@
                         <span>Assista já</span>
                     </a>
                 </button> -->
-                <div class="bg-principal w-64 h-14 rounded-xl flex flex-row items-center justify-center text-white font-font gap-2">
-                    <h1 class="text-white text-[16px] font-light px-2">Comprar:</h1>
-                    <button class="bg-principal rounded-md w-16 flex items-center justify-center px-4">
-                        <span class="text-white font-font text-[16px] font-semibold">R$20,00</span>
+                <h1 class="text-white text-[16px] font-bold px-2 py-2">Comprar:</h1>
+                <div class="bg-principal w-64 h-14 rounded-xl flex flex-row items-center justify-center text-white font-font gap-1">
+                    <button class="bg-principal rounded-md w-16 flex items-center justify-center px-4 gap-2">
+                        <span class="text-white font-font text-[16px] font-semibold">R$</span>
+                        <span id="filme-valor" class="text-white font-font text-[16px] font-semibold">20,00</span>
                     </button>
                 </div>
             </div>
