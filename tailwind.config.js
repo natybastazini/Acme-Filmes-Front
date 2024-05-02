@@ -10,7 +10,8 @@ module.exports = {
         
       },
       fontFamily: {
-        font: ['Khand', 'sans-serif']
+        font: ['Khand', 'sans-serif'],
+        fontDestaque: ['Katibeh', 'serif']
       }
     },
   },

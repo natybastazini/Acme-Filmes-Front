@@ -31,12 +31,6 @@ async function mostrarCard (){
         const card = criarCard (filme)
         cardContainer.appendChild(card)
     })
-
-    // const card = criarCard(filme[0])
-    // cardContainer.appendChild(card)
-
-    // const info = document.querySelector(".info p")
-    // info = `${filme.ano} | ${filme.ano} | ${filme.bbb}`
 }
 
 mostrarCard()
