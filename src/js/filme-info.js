@@ -15,7 +15,7 @@ const montarCard = (filme) => {
     filmeNome.textContent = filme.nome
 
     let filmeInfoTexto = `${filme.data_lancamento.split('-')[0]} | ${filme.duracao}`
-    console.log(filme);
+    // console.log(filme);
     if(filme.genero){
         filmeInfo.textContent = `${filmeInfoTexto} | ${filme.genero[0].nome}`
     }else{
