@@ -1,6 +1,6 @@
 'use strict'
 
-import { getAtores } from "./funcoes.js"
+import { getAtores, deleteAtor } from "./funcoes.js"
 
 const criarLinha = (ator) => {
 
@@ -31,18 +31,22 @@ const criarLinha = (ator) => {
     }else{
         nacionalidade.textContent = ''
     }
-
-    const buttonDelete = document.createElement('button')
-    buttonDelete.className = "flex items-center justify-center"
     
-    iconeDelete = document.createElement('img')
-    // iconeDelete.className = 
+    const buttonDelete = document.createElement('button');
+    buttonDelete.className = "flex items-center justify-center";
+    const iconeDelete = document.createElement('img');
+    iconeDelete.className = "w-24";
+    iconeDelete.src = "../../../img/lixo.png";
+    iconeDelete.alt = "";
+    buttonDelete.appendChild(iconeDelete)
 
+    buttonDelete.addEventListener('click', async () => {
+        await deleteAtor(ator.id) 
+        window.location.reload()
+    })
+    
+    container.replaceChildren(id, nome, dataNascimento, sexo, nacionalidade, buttonDelete)
 
-    // buttonDelete.appendChild ('img-')
-
-
-    container.replaceChildren(id, nome, dataNascimento, sexo, nacionalidade)
 
     return container
 }
@@ -63,28 +67,28 @@ async function mostrarLinha (){
 
 mostrarLinha()
 
-// const openModalButton = document.getElementById('openModal')
-// const closeModalButton = document.getElementById('closeModal')
-// const modal = document.getElementById('modal')
-// const adicionarDiretorButton = document.getElementById('adicionarDiretor')
+const openModalButton = document.getElementById('openModal')
+const closeModalButton = document.getElementById('closeModal')
+const modal = document.getElementById('modal')
+const adicionarDiretorButton = document.getElementById('adicionarDiretor')
 
-// openModalButton.addEventListener('click', () => {
-//     modal.classList.remove('hidden')
-// })
+openModalButton.addEventListener('click', () => {
+    modal.classList.remove('hidden')
+})
 
-// closeModalButton.addEventListener('click', () => {
-//     modal.classList.add('hidden')
-// })
+closeModalButton.addEventListener('click', () => {
+    modal.classList.add('hidden')
+})
 
-// adicionarDiretorButton.addEventListener('click', () => {
-//     const nome = document.getElementById('nomeInput').value
-//     const dataNascimento = document.getElementById('dataNascimentoInput').value
-//     const dataFalecimento = document.getElementById('dataFalecimentoInput').value
-//     const foto = document.getElementById('fotoInput').files[0] 
-//     const biografia = document.getElementById('biografiaInput').value
-//     const sexo = document.getElementById('sexoInput').value
-//             const nacionalidade = document.getElementById('nacionalidadeInput').value
+adicionarDiretorButton.addEventListener('click', () => {
+    const nome = document.getElementById('nomeInput').value
+    const dataNascimento = document.getElementById('dataNascimentoInput').value
+    const dataFalecimento = document.getElementById('dataFalecimentoInput').value
+    const foto = document.getElementById('fotoInput').files[0] 
+    const biografia = document.getElementById('biografiaInput').value
+    const sexo = document.getElementById('sexoInput').value
+            const nacionalidade = document.getElementById('nacionalidadeInput').value
 
-//     console.log(nome, dataNascimento, dataFalecimento, foto, biografia, sexo, nacionalidade)
-//     modal.classList.add('hidden')
-// })
+    console.log(nome, dataNascimento, dataFalecimento, foto, biografia, sexo, nacionalidade)
+    modal.classList.add('hidden')
+})

@@ -27,8 +27,20 @@ const criarLinha = (filme) => {
     valor.className = "bg-white w-full h-10 rounded-md font-bold flex items-center justify-center"
     valor.textContent = filme.valor_unitario
 
+    const buttonDelete = document.createElement('button');
+    buttonDelete.className = "flex items-center justify-center";
+    const iconeDelete = document.createElement('img');
+    iconeDelete.className = "w-24";
+    iconeDelete.src = "../../../img/lixo.png";
+    iconeDelete.alt = "";
+    buttonDelete.appendChild(iconeDelete)
 
-    container.replaceChildren(id, nome, classificacao, duracao, valor)
+    buttonDelete.addEventListener('click', async () => {
+        await deleteFilme(filme.id) 
+        window.location.reload()
+    })
+
+    container.replaceChildren(id, nome, classificacao, duracao, valor, buttonDelete)
 
     return container
 }

@@ -41,13 +41,53 @@ export async function getGenero(id) {
 }
 
 export async function deleteGenero(id) {
-    const url = `http://localhost:8080/v2/acmefilmes/genero/${id}`
+    const url = `http://localhost:8080/v3/acmefilmes/genero/${id}`
     const options={
         method: 'DELETE'
     }
     const response = await fetch(url, options)
     return response.ok
 }
+
+export async function postGenero (genero){
+  
+    const url = `http://localhost:8080/v2/acmefilmes/genero`
+    const options = {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(genero)
+    }
+    const response = await fetch (url,options)
+    return response.ok
+}
+
+export async function putGenero(id, genero) {
+    try {
+        const response = await fetch(`/v2/acmefilmes/genero/atualizado/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(genero),
+        })
+
+        if (!response.ok) {
+            console.error('Resposta da API não OK:', response.status, response.statusText)
+            return false
+        }
+
+        const data = await response.json()
+        console.log('Resposta da API:', data)
+
+        return data.status === 'success'
+    } catch (error) {
+        console.error('Erro ao fazer a requisição:', error)
+        return false
+    }
+}
+
 
 //Atores
 
