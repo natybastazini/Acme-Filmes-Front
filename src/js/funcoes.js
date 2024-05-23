@@ -65,23 +65,22 @@ export async function postGenero (genero){
 
 export async function putGenero(id, genero) {
     try {
-        const response = await fetch(`/v2/acmefilmes/genero/atualizado/${id}`, {
+        const url = `http://localhost:8080/v2/acmefilmes/genero/atualizado/${id}`
+        const options = {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type':'application/json',
             },
             body: JSON.stringify(genero),
-        })
-
+        }
+        const response = await fetch(url, options)
         if (!response.ok) {
             console.error('Resposta da API não OK:', response.status, response.statusText)
             return false
         }
 
         const data = await response.json()
-        console.log('Resposta da API:', data)
-
-        return data.status === 'success'
+        return data.status
     } catch (error) {
         console.error('Erro ao fazer a requisição:', error)
         return false

@@ -37,25 +37,21 @@ const criarLinha = (genero) => {
     buttonUpdate.appendChild(iconeUpdate)
 
     buttonUpdate.addEventListener('click', async () => {
-        await putGenero(genero.id) 
-        window.location.reload()
+        abrirModalEdicao(genero)
+        // document.getElementById('modalEditar').classList.remove('hidden')
+        // document.getElementById('nomeInputEditar').value = genero.nome
     })
 
     container.replaceChildren(id, nome, buttonDelete, buttonUpdate)
-
     return container
 }
 
 async function mostrarLinha (){
     const container = document.getElementById('container-generos')
     const generos = await getGeneros()
-
-    console.log(generos)
-
     container.replaceChildren('')
 
     generos.forEach( genero => {
-        console.log(genero)
         const linha = criarLinha (genero)
         container.appendChild (linha)
     })
@@ -93,23 +89,58 @@ document.getElementById('adicionar-genero').addEventListener('click', async () =
     }
 })
 
-const idDoGenero = 1;
-const dadosAtualizados = {
-    nome: "Novo nome do gênero",
+
+function abrirModalEdicao(genero) {
+    const modalEditar = document.getElementById('modalEditar')
+    const nomeInputEditar = document.getElementById('nomeInputEditar')
+
+    nomeInputEditar.value = genero.nome
+
+    modalEditar.classList.remove('hidden')
+
+    const salvarEdicaoButton = document.getElementById('salvarEdicao')
+    salvarEdicaoButton.addEventListener('click', async () => {
+
+        const dadosAtualizados = {
+            nome: nomeInputEditar.value
+        }
+
+        try {
+            const sucesso = await putGenero(genero.id, dadosAtualizados)
+            if (sucesso) {
+                console.log('Gênero atualizado com sucesso!!')
+                modalEditar.classList.add('hidden');
+                mostrarLinha()
+            } else {
+                console.error('Falha ao atualizar o gênero!!')
+            }
+        } catch (error) {
+            console.error('Erro ao atualizar gênero:', error)
+        }
+    })
 }
 
-const sucesso = await putGenero(idDoGenero, dadosAtualizados);
+// const idDoGenero = 1;
+// const dadosAtualizados = {
+//     nome: "Novo nome do gênero",
+// }
 
-if (sucesso) {
-    console.log('Gênero atualizado com sucesso!!');
-} else {
-    console.error('Falha ao atualizar o gênero!!');
-}
+// const sucesso = await putGenero(idDoGenero, dadosAtualizados);
+
+// if (sucesso) {
+//     console.log('Gênero atualizado com sucesso!!');
+// } else {
+//     console.error('Falha ao atualizar o gênero!!');
+// }
 
 const openModalButton = document.getElementById('openModal')
 const closeModalButton = document.getElementById('closeModal')
+const openModalEditarButton = document.getElementById('salvarEdicao')
+const closeModalEditarButton = document.getElementById('cancelarEdicao')
         
 const modal = document.getElementById('modal')
+const modalEditar = document.getElementById('modalEditar')
+
 
 openModalButton.addEventListener('click', () => {
     modal.classList.remove('hidden')
@@ -117,4 +148,13 @@ openModalButton.addEventListener('click', () => {
 
 closeModalButton.addEventListener('click', () => {
     modal.classList.add('hidden')
+})
+
+
+openModalEditarButton.addEventListener('click', () => {
+    modalEditar.classList.remove('hidden')
+})
+
+closeModalEditarButton.addEventListener('click', () => {
+    modalEditar.classList.add('hidden')
 })
